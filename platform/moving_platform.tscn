@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://bblj3mexpyon1"]
+
+[ext_resource type="Script" path="res://platform/moving_platform.gd" id="1_74sqw"]
+[ext_resource type="Texture2D" uid="uid://wko3pbwsadrp" path="res://tileset/tilesets_1.png" id="2_jxwgv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xk4ip"]
+texture = ExtResource("2_jxwgv")
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+8:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+8:3/0 = 0
+10:3/0 = 0
+12:3/0 = 0
+14:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+22:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+8:4/0 = 0
+10:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+22:4/0 = 0
+1:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+6:6/0 = 0
+8:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+21:6/0 = 0
+1:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+6:7/0 = 0
+8:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+1:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+21:8/0 = 0
+22:8/0 = 0
+3:9/0 = 0
+5:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+21:9/0 = 0
+22:9/0 = 0
+3:10/0 = 0
+5:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pww55"]
+sources/0 = SubResource("TileSetAtlasSource_xk4ip")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bupmk"]
+size = Vector2(80, 16)
+
+[node name="moving_platform" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_74sqw")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_pww55")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 131072, 1, -65535, 196608, 1, -65534, 262144, 1, -65533, 327680, 1, -65532, 393216, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, -8)
+shape = SubResource("RectangleShape2D_bupmk")
+one_way_collision = true
+one_way_collision_margin = 2.0

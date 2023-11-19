@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://crfcom3dsb2nn"]
+
+[ext_resource type="Texture2D" uid="uid://i4mcesmb7dk8" path="res://background/background.png" id="1_7a5ok"]
+[ext_resource type="PackedScene" uid="uid://c5yf3uudan3p2" path="res://background/parallax_background.tscn" id="3_xiyb4"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+follow_viewport_scale = 2.0
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("3_xiyb4")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -101
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(2.2, 1.90909)
+texture = ExtResource("1_7a5ok")
+centered = false

@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhbynhdr027pg"]
+
+[ext_resource type="Texture2D" uid="uid://iuc1lgtx8kxs" path="res://player/impact.png" id="1_2g4ca"]
+[ext_resource type="Script" path="res://player/BulletImpactEffect.gd" id="2_bgy4x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phf0l"]
+atlas = ExtResource("1_2g4ca")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftj54"]
+atlas = ExtResource("1_2g4ca")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaplf"]
+atlas = ExtResource("1_2g4ca")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm01m"]
+atlas = ExtResource("1_2g4ca")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x741d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phf0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftj54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaplf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm01m")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"impact",
+"speed": 12.0
+}]
+
+[node name="BulletImpactEffect" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_x741d")
+animation = &"impact"
+autoplay = "impact"
+frame = 4
+frame_progress = 1.0
+script = ExtResource("2_bgy4x")
