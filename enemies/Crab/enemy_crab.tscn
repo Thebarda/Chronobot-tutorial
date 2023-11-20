@@ -1,8 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://cefkcsouo81dx"]
+[gd_scene load_steps=19 format=3 uid="uid://cefkcsouo81dx"]
 
 [ext_resource type="Texture2D" uid="uid://bep0lufe2beta" path="res://enemies/Crab/crab-idle.png" id="1_5188r"]
 [ext_resource type="Script" path="res://enemies/Crab/enemy_crab.gd" id="1_x1xag"]
 [ext_resource type="Texture2D" uid="uid://wxpclsgsu34t" path="res://enemies/Crab/crab-walk.png" id="2_kh5vr"]
+[ext_resource type="Script" path="res://enemies/Crab/StateMachineController.gd" id="4_2bh5h"]
+[ext_resource type="Script" path="res://enemies/Crab/IdleState.gd" id="4_owowp"]
+[ext_resource type="Script" path="res://enemies/Crab/WalkState.gd" id="5_pvfym"]
+[ext_resource type="Script" path="res://scripts/StateMachine/node_finite_state_machine.gd" id="5_ro6ow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhu7r"]
 atlas = ExtResource("1_5188r")
@@ -79,6 +83,7 @@ radius = 12.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a7ca3"]
 
 [node name="EnemyCrab" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_x1xag")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -97,12 +102,36 @@ autostart = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 10
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(-1, 2)
 shape = SubResource("CapsuleShape2D_a7ca3")
 debug_color = Color(0.92549, 0.247059, 0.298039, 0.419608)
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="StateMachineController" type="Node" parent="." node_paths=PackedStringArray("node_finite_state_machine")]
+script = ExtResource("4_2bh5h")
+node_finite_state_machine = NodePath("../StateMachine")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("5_ro6ow")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animatedSprite", "timerWalk")]
+script = ExtResource("4_owowp")
+character = NodePath("../..")
+animatedSprite = NodePath("../../AnimatedSprite2D")
+timerWalk = NodePath("../../Timer")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animatedSprite")]
+script = ExtResource("5_pvfym")
+character = NodePath("../..")
+animatedSprite = NodePath("../../AnimatedSprite2D")
+
+[node name="TimerIdle" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="StateMachineController" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="TimerIdle" to="StateMachineController" method="_on_timer_idle_timeout"]

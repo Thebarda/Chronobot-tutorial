@@ -7,20 +7,14 @@
 
 [node name="Boilerplate" type="Node"]
 
-[node name="StateMachineController" type="Node" parent="." node_paths=PackedStringArray("node_finite_state_machine")]
+[node name="StateMachineController" type="Node" parent="."]
 script = ExtResource("1_tq7ic")
-node_finite_state_machine = NodePath("")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+[node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_cytdv")
-initial_node_state = NodePath("")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animatedSprite")]
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_s71ys")
-character = NodePath("")
-animatedSprite = NodePath("")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animatedSprite")]
+[node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("4_8h04t")
-character = NodePath("")
-animatedSprite = NodePath("")
