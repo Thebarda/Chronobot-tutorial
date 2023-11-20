@@ -32,6 +32,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	player_animations()
+	# print(State.keys()[current_state])
 	
 func player_failing(delta):
 	if !is_on_floor():
@@ -72,11 +73,10 @@ func player_shooting(delta):
 	if direction != 0:
 		shooting_direction = direction
 		
-	if $ShootTimer.time_left > 0:
-		return
-		
 	if shooting_direction != 0 and Input.is_action_pressed("action_shoot"):
 		current_state = State.Shoot
+		if $ShootTimer.time_left > 0:
+			return
 		var bullet_instance = bullet.instantiate() as Node2D
 		bullet_instance.direction = shooting_direction
 		bullet_instance.global_position = $muzzle.global_position

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://8vnu4uku6k3p"]
+
+[ext_resource type="Script" path="res://enemies/Dino/StateMachineController.gd" id="1_tq7ic"]
+[ext_resource type="Script" path="res://scripts/StateMachine/node_finite_state_machine.gd" id="2_cytdv"]
+[ext_resource type="Script" path="res://enemies/Dino/Idle_state.gd" id="3_s71ys"]
+[ext_resource type="Script" path="res://enemies/Dino/Attack_state.gd" id="4_8h04t"]
+
+[node name="Boilerplate" type="Node"]
+
+[node name="StateMachineController" type="Node" parent="." node_paths=PackedStringArray("node_finite_state_machine")]
+script = ExtResource("1_tq7ic")
+node_finite_state_machine = NodePath("")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("2_cytdv")
+initial_node_state = NodePath("")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animatedSprite")]
+script = ExtResource("3_s71ys")
+character = NodePath("")
+animatedSprite = NodePath("")
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animatedSprite")]
+script = ExtResource("4_8h04t")
+character = NodePath("")
+animatedSprite = NodePath("")

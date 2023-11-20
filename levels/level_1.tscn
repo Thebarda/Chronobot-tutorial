@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wqxxtfbfml3v" path="res://levels/base_level.tscn" id="1_wqn7u"]
 [ext_resource type="PackedScene" uid="uid://crfcom3dsb2nn" path="res://background/canvas_layer.tscn" id="2_er2ws"]
-[ext_resource type="PackedScene" uid="uid://cefkcsouo81dx" path="res://enemies/enemy_crab.tscn" id="3_ab6c5"]
+[ext_resource type="PackedScene" uid="uid://cefkcsouo81dx" path="res://enemies/Crab/enemy_crab.tscn" id="3_ab6c5"]
 [ext_resource type="PackedScene" uid="uid://dx23p6auc34mq" path="res://platform/static_platform.tscn" id="4_8niqf"]
 [ext_resource type="PackedScene" uid="uid://bblj3mexpyon1" path="res://platform/moving_platform.tscn" id="5_rl76c"]
 
