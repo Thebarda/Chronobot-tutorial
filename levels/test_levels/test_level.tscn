@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://kf5mgyfl1206"]
+[gd_scene load_steps=3 format=3 uid="uid://kf5mgyfl1206"]
 
 [ext_resource type="PackedScene" uid="uid://wqxxtfbfml3v" path="res://levels/base_level.tscn" id="1_j7psn"]
 [ext_resource type="PackedScene" uid="uid://c5yf3uudan3p2" path="res://background/parallax_background.tscn" id="2_rtjgc"]
-[ext_resource type="PackedScene" uid="uid://bft87m48gbvcm" path="res://enemies/Dino/enemy_dino.tscn" id="3_xmp5d"]
-[ext_resource type="PackedScene" uid="uid://cefkcsouo81dx" path="res://enemies/Crab/enemy_crab.tscn" id="4_aj2iq"]
 
 [node name="TestLevel" instance=ExtResource("1_j7psn")]
 
@@ -16,20 +14,5 @@ layer_0/tile_data = PackedInt32Array(-262144, 983040, 8, -196608, 983040, 8, -13
 [node name="Player" parent="." index="2"]
 position = Vector2(49, -127)
 
-[node name="Camera2D" parent="Player" index="4"]
+[node name="Camera2D" parent="Player" index="5"]
 offset = Vector2(0, -50)
-
-[node name="EnemyDino" parent="." index="3" instance=ExtResource("3_xmp5d")]
-position = Vector2(137, -113)
-
-[node name="EnemyCrab" parent="." index="4" node_paths=PackedStringArray("patrol_points") instance=ExtResource("4_aj2iq")]
-position = Vector2(462, -82)
-patrol_points = NodePath("PointAnchors")
-
-[node name="PointAnchors" type="Node2D" parent="EnemyCrab" index="4"]
-
-[node name="Point1" type="Marker2D" parent="EnemyCrab/PointAnchors" index="0"]
-position = Vector2(-46, 11)
-
-[node name="Point2" type="Marker2D" parent="EnemyCrab/PointAnchors" index="1"]
-position = Vector2(84, 10)

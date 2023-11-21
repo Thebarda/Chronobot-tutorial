@@ -21,7 +21,7 @@ func on_physics_process(delta):
 		direction = 1
 		animatedSprite.flip_h = true
 		
-	animatedSprite.play("")
+	animatedSprite.play("attack")
 	character.velocity.x += direction * speed * delta
 	character.velocity.x = clamp(character.velocity.x, -max_speed, max_speed)
 

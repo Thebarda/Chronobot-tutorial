@@ -10,6 +10,7 @@ var current_node_state_name: String
 func _ready():
 	for child in get_children():
 		if child is NodeState:
+			print(child.name)
 			node_states[child.name.to_lower()] = child
 	
 	if initial_node_state:
