@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 var enemy_death = preload("res://enemies/enemy_death.tscn")
 
+@export var damage_amount = 1
+
 var health = 5
 
 func _on_hurtbox_area_entered(area):
-	print(area)
 	if !area.is_in_group("Bullet"):
 		return
 	

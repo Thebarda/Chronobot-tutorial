@@ -20,16 +20,6 @@ layer_2/tile_data = PackedInt32Array(-196602, 65536, 6, -131066, 65536, 7, -6553
 [node name="Player" parent="." index="2"]
 position = Vector2(24, -32)
 
-[node name="Camera2D" parent="Player" index="5"]
-limit_left = -50
-limit_top = -320
-limit_right = 1728
-limit_bottom = 0
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
-editor_draw_limits = true
-
 [node name="Enemies" type="Node" parent="." index="3"]
 
 [node name="EnemyCrab" parent="Enemies" index="0" node_paths=PackedStringArray("patrol_points") instance=ExtResource("3_ab6c5")]

@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 @export var patrol_points: Node
 @export var speed: int = 50
+@export var damage_amount = 1
 
 var enemy_death = preload("res://enemies/enemy_death.tscn")
 
 const GRAVITY = 1000
-
 
 var direction: Vector2 = Vector2.LEFT
 var number_of_points: int

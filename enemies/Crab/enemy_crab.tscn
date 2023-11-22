@@ -82,8 +82,9 @@ radius = 12.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a7ca3"]
 
-[node name="EnemyCrab" type="CharacterBody2D"]
+[node name="EnemyCrab" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_x1xag")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
